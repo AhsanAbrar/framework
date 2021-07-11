@@ -6,6 +6,7 @@ use Laranext\Field;
 use Illuminate\Http\Request;
 use {{ namespace }}\Models\{{ modelClass }};
 use {{ namespace }}\Filters\{{ name }}Filters;
+use {{ namespace }}\Requests\{{ name }}Request;
 use Laranext\Authorization\Http\Controllers\AuthorizeController;
 
 class {{ plural }}Controller extends AuthorizeController
