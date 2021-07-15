@@ -12,7 +12,7 @@ class PackageCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'laranext:package {package} {--namespace=}';
+    protected $signature = 'laranext:package {package} {--stub=} {--namespace=}';
 
     /**
      * The console command description.
@@ -35,7 +35,7 @@ class PackageCommand extends Command
         }
 
         (new Filesystem)->copyDirectory(
-            __DIR__.'/package-stubs',
+            __DIR__ . $this->getStub(),
             $this->packagePath()
         );
 
@@ -50,6 +50,21 @@ class PackageCommand extends Command
         }
 
         $this->info('Laranext package generated successfully.');
+    }
+
+    /**
+     * Get Package Stubs Path.
+     *
+     * @return string
+     */
+    protected function getStub()
+    {
+        $stubs = [
+            '' => '/package-stubs',
+            'tailwindui' => '/tailwindui-stubs',
+        ];
+
+        return $stubs[$this->option('stub')];
     }
 
     /**

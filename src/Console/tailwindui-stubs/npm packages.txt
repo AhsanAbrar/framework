@@ -1,0 +1,1 @@
+@heroicons/vue @intlify/vite-plugin-vue-i18n @tailwindcss/forms @vitejs/plugin-vue @vue/compiler-sfc axios pinia@next tailwindcss vite vue@next vue-i18n@next vue-router@next
