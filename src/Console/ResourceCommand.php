@@ -82,10 +82,12 @@ class ResourceCommand extends Command
         $route = str_replace('{uri}', $this->kebabPlural(), $route);
         $route = str_replace('{controller}', $this->plural(), $route);
 
-        file_put_contents(
-            $this->packagePath('routes/api.php'),
-            $route,
-            FILE_APPEND
-        );
+        if (file_exists($this->packagePath('routes/api.php'))) {
+            file_put_contents(
+                $this->packagePath('routes/api.php'),
+                $route,
+                FILE_APPEND
+            );
+        }
     }
 }

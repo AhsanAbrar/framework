@@ -1,4 +1,4 @@
-import { app } from 'Laranext/app'
+import { app } from '@/app'
 
 app.provide('can', permission => {
   if (Config.meta.is_super_admin) return true
