@@ -37,7 +37,7 @@ class AppConfig implements JsonSerializable
             'meta' => [
                 // 'is_super_admin' => auth()->user()->isSuperAdmin(),
                 'is_super_admin' => true,
-                'locale' => env('APP_LOCALE'),
+                'locale' => env('APP_LOCALE', 'en'),
                 'app_updates' => option('app_updates'),
                 'purchase_code' => env('PURCHASE_CODE'),
             ],
