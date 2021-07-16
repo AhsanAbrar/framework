@@ -29,7 +29,9 @@ abstract class Command extends ConsoleCommand
      */
     protected function replace($search, $replace, $path)
     {
-        file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
+        if ((new Filesystem)->exists($path)) {
+            file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
+        }
     }
 
     /**
