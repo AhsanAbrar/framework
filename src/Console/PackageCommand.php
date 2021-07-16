@@ -61,6 +61,7 @@ class PackageCommand extends Command
     {
         $stubs = [
             '' => '/package-stubs',
+            'site' => '/site-stubs',
             'tailwindui' => '/tailwindui-stubs',
         ];
 
@@ -85,6 +86,13 @@ class PackageCommand extends Command
         $this->replace('{{ namespace }}', $this->namespace(), $this->packagePath('resources/views/app.blade.php'));
         $this->replace('{{ name }}', $this->argument('package'), $this->packagePath('resources/views/app.blade.php'));
         $this->replace('{{ nameCapital }}', ucfirst($this->argument('package')), $this->packagePath('resources/views/app.blade.php'));
+
+        // views/home.blade.php replacements...
+        $this->replace('{{ nameCapital }}', ucfirst($this->argument('package')), $this->packagePath('resources/views/home.blade.php'));
+
+        // views/components/layout.blade.php replacements...
+        $this->replace('{{ name }}', $this->argument('package'), $this->packagePath('resources/views/components/layout.blade.php'));
+        $this->replace('{{ nameCapital }}', ucfirst($this->argument('package')), $this->packagePath('resources/views/components/layout.blade.php'));
 
         // FiltersController.php replacements...
         $this->replace('{{ namespace }}', $this->namespace(), $this->packagePath('src/Http/Controllers/Api/FiltersController.php'));
