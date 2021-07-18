@@ -1,7 +1,12 @@
 <template>
-  <layout-master/>
+  <Layout v-if="main.layout"/>
+
+  <router-view v-else/>
 </template>
 
 <script setup>
-  import LayoutMaster from 'View/layouts/master.vue'
+  import Layout from 'Layout/layout.vue'
+  import { useMainStore } from 'Store/main'
+
+  const main = useMainStore()
 </script>

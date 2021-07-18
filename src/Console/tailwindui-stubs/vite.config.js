@@ -15,6 +15,7 @@ export default defineConfig({
     alias: {
       '@': path.join(__dirname, 'resources/js'),
       Component: path.join(__dirname, 'resources/js/components'),
+      Layout: path.join(__dirname, 'resources/js/layouts'),
       Store: path.join(__dirname, 'resources/js/stores'),
       Use: path.join(__dirname, 'resources/js/uses'),
       Util: path.join(__dirname, 'resources/js/util'),

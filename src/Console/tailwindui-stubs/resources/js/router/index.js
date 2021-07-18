@@ -6,6 +6,7 @@ export const router = createRouter({
     routes,
 })
 
-router.beforeEach((to, from, next) => {
-    next()
-})
+// router.beforeEach((to, from, next) => {
+//     console.log('beforeEach')
+//     next()
+// })
