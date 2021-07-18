@@ -122,6 +122,16 @@ abstract class Command extends ConsoleCommand
     }
 
     /**
+     * Get the title case with space from package name.
+     *
+     * @return string
+     */
+    protected function title()
+    {
+        return Str::of($this->argument('package'))->replace('-', ' ')->title();
+    }
+
+    /**
      * Get the package class name.
      *
      * @return string
