@@ -63,6 +63,7 @@ class PackageCommand extends Command
             '' => '/package-stubs',
             'site' => '/site-stubs',
             'tailwindui' => '/tailwindui-stubs',
+            'vue' => '/vue-stubs',
         ];
 
         return $stubs[$this->option('stub')];

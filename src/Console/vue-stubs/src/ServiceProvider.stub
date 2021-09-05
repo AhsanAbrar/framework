@@ -75,7 +75,7 @@ class {{ namespace }}ServiceProvider extends ServiceProvider
     {
         Route::group([
             'namespace' => '{{ namespace }}\Http\Controllers\Api',
-            'middleware' => 'api',
+            'middleware' => ['web', 'auth'],
             'prefix' => Laranext::prefix() . '/api',
         ], function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
@@ -83,7 +83,7 @@ class {{ namespace }}ServiceProvider extends ServiceProvider
 
         Route::group([
             'namespace' => '{{ namespace }}\Http\Controllers',
-            'middleware' => 'web',
+            'middleware' => ['web', 'auth'],
             'prefix' => Laranext::prefix(),
         ], function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
