@@ -17,4 +17,12 @@
 
 <script setup>
   import { Nav } from 'Use/nav'
+  import { useRouter } from 'vue-router'
+  import { PlusIcon } from '@heroicons/vue/outline'
+
+  const router = useRouter()
+
+  function add(uri) {
+    router.push(uri)
+  }
 </script>

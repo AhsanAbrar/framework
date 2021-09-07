@@ -13,14 +13,15 @@ return [
     |
     */
 
-    'prefix' => 'admin',
+    'prefix' => 'prefix',
 
     'prefix_providers' => [
-        // '' => Admin\AdminServiceProvider::class,
+        // 'blog' => Blog\BlogServiceProvider::class,
     ],
 
     'providers' => [
         // '' => Site\SiteServiceProvider::class,
+        // 'admin' => Admin\AdminServiceProvider::class,
     ],
 
     /*

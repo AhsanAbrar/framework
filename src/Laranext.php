@@ -55,11 +55,19 @@ class Laranext
 
         app()->register(LaranextServiceProvider::class);
 
-        foreach (array_merge(config('laranext.prefix_providers'), config('laranext.providers')) as $key => $provider) {
-            is_string($provider)
-                ? app()->register($provider)
-                : app()->register($provider['provider']);
+        foreach (config('laranext.providers') as $key => $provider) {
+            app()->register($provider);
         }
+
+        foreach (config('laranext.prefix_providers') as $key => $provider) {
+            app()->register($provider);
+        }
+
+        // foreach (array_merge(config('laranext.prefix_providers'), config('laranext.providers')) as $key => $provider) {
+        //     is_string($provider)
+        //         ? app()->register($provider)
+        //         : app()->register($provider['provider']);
+        // }
     }
 
     /**
