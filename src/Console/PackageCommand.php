@@ -62,7 +62,6 @@ class PackageCommand extends Command
         $stubs = [
             '' => '/package-stubs',
             'site' => '/site-stubs',
-            'tailwindui' => '/tailwindui-stubs',
             'vue' => '/vue-stubs',
         ];
 
