@@ -37,7 +37,9 @@ trait Categorizable
      */
     public static function parentId()
     {
-        return static::getId(static::$parent);
+        return Cache::rememberForever('category:parent:' . static::$parent, function () {
+            return optional(DB::table('categories')->whereNull('parent_id')->whereKey(static::$parent)->first())->id;
+        });
     }
 
     /**
@@ -49,7 +51,7 @@ trait Categorizable
     public static function getId($key)
     {
         return Cache::rememberForever('category:' . Str::slug($key), function () use ($key) {
-            return optional(DB::table('categories')->whereKey($key)->first())->id;
+            return optional(DB::table('categories')->whereParentId(static::parentId())->whereKey($key)->first())->id;
         });
     }
 
